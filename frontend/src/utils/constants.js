@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://localhost:8000';
+export const BASE_URL = 'https://notely-4rd5.onrender.com';
