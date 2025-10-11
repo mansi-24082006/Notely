@@ -8,14 +8,14 @@ Simple. Colorful. Productive. 💫
 ## 🚀 Overview
 
 **Notely** lets you securely create, edit, and organize notes with a smooth and elegant interface.  
-It includes full authentication, CRUD features, and search functionality — everything wrapped in a stunning gradient UI.
+It includes full authentication, CRUD features, and search functionality — all wrapped in a stunning gradient UI.
 
 ---
 
 ## ✨ Features
 
 - 🔐 User Authentication (Register/Login)
-- 🗒️ Create, Edit, Delete, View Notes
+- 🗒️ Create, Edit, Delete, and View Notes
 - 🔍 Search and Filter Notes
 - 🏷️ Add Tags for Organization
 - 🌈 Beautiful Gradient UI (Indigo → Purple → Pink)
@@ -41,36 +41,41 @@ It includes full authentication, CRUD features, and search functionality — eve
 - bcrypt for password hashing
 - dotenv for environment variables
 
-###Install dependencies
+---
 
-npm install
+## ⚡ Installation
 
-###🖥️ Frontend Setup
+### Backend Setup
 
-##Navigate to frontend folder
-cd frontend
+1. Navigate to backend folder:
+   ```bash
+   cd backend
+2.Install dependencies:
+  npm install
+3.Create a .env file:
+  PORT=8000
+  MONGO_URI=mongodb://localhost:27017/notely
+  JWT_SECRET=your_secret_key
+  JWT_EXPIRES_IN=7d
+  SALT_ROUNDS=10
 
-##Install dependencies
-npm install
+4.Run the server:
+  npm run dev
+  
+Server runs on: http://localhost:8000
 
-##Create .env file
-VITE_API_BASE_URL=http://localhost:5000/api
+###Frontend Setup
 
-##Start the frontend
-npm run dev
-App runs on http://localhost:5173
+1.Navigate to frontend folder:
+  cd frontend
 
-###Backend SetUp
+2.Install dependencies:
+  npm install
 
-##Create a .env file
-PORT=8000
-MONGO_URI=mongodb://localhost:27017/notely
-JWT_SECRET=your_secret_key
-JWT_EXPIRES_IN=7d
-SALT_ROUNDS=10
+3.Create a .env file:
+  VITE_API_BASE_URL=http://localhost:8000/api
 
-##Run the server
-npm run dev
+4.Start the frontend:
+  npm run dev
 
-Server runs on http://localhost:8000
-
+App runs on: http://localhost:5173
