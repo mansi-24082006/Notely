@@ -64,7 +64,7 @@ It includes full authentication, CRUD features, and search functionality — all
   
 Server runs on: http://localhost:8000
 
-###Frontend Setup
+### Frontend Setup
 
 1.Navigate to frontend folder:
   cd frontend
