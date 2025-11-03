@@ -91,7 +91,7 @@ const AddEditNotes = ({
         <label className="text-sm font-semibold text-gray-700">TITLE</label>
         <input
           type="text"
-          placeholder="🌸 Note something that made you smile"
+          placeholder="Note something that made you smile"
           className="text-xl text-gray-900 outline-none border-b-2 border-transparent 
                      focus:border-blue-500 bg-transparent transition-colors duration-300 
                      placeholder-gray-400 py-1"
