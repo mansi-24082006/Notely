@@ -1,12 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MdOutlinePushPin, MdCreate, MdDelete } from "react-icons/md";
-import moment from "moment"; // ✅ Import moment
+import moment from "moment";
 
 const NoteCard = ({
   title,
   date,
   content,
-  tags = [],
+  tags,
   isPinned,
   onEdit,
   onDelete,
@@ -14,7 +15,7 @@ const NoteCard = ({
 }) => {
   return (
     <div className="border rounded p-4 bg-white hover:shadow-xl transition-all ease-in-out">
-      {/* Header: Title + Date + Pin */}
+      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
           <h6 className="text-sm font-medium">{title}</h6>
@@ -22,6 +23,7 @@ const NoteCard = ({
             {moment(date).format("DD MMM YYYY")}
           </span>
         </div>
+
         <MdOutlinePushPin
           className={`text-xl cursor-pointer ${
             isPinned ? "text-blue-400" : "text-slate-300"
@@ -31,16 +33,18 @@ const NoteCard = ({
       </div>
 
       {/* Content */}
-      <p className="my-2 text-sm">{content?.slice(0, 60)}</p>
+      <p className="my-2 text-sm">
+        {content?.slice(0, 60)}
+      </p>
 
-      {/* Tags and Actions */}
+      {/* Tags & Actions */}
       <div className="flex items-center justify-between mt-2">
-        {/* Tags */}
         <div className="text-xs text-slate-500">
-          {tags.map((item) => `#${item} `)}
+          {tags.map((item, index) => (
+            <span key={index}>#{item} </span>
+          ))}
         </div>
 
-        {/* Action Buttons */}
         <div className="flex items-center gap-2">
           <MdCreate
             className="icon-btn cursor-pointer hover:text-green-600"
@@ -54,6 +58,29 @@ const NoteCard = ({
       </div>
     </div>
   );
+};
+
+/* ================= PROPS VALIDATION ================= */
+
+NoteCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Date),
+  ]).isRequired,
+  content: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  isPinned: PropTypes.bool,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onPinNote: PropTypes.func.isRequired,
+};
+
+/* ================= DEFAULT PROPS ================= */
+
+NoteCard.defaultProps = {
+  tags: [],
+  isPinned: false,
 };
 
 export default NoteCard;
