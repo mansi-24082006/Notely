@@ -128,19 +128,20 @@ const AddEditNotes = ({
       )}
 
       {/* Add/Update Button */}
-      <button
-        type="button"
-        className={`mt-6 w-full text-white font-semibold py-3 px-4 rounded-lg shadow-md 
-              transition-all duration-300 bg-gradient-to-r 
-              ${
-                type === "edit"
-                  ? "from-indigo-500 via-purple-500 to-pink-500"
-                  : "from-indigo-500 via-purple-500 to-pink-500"
-              }`}
-        onClick={handleAddOrUpdate}
-      >
-        {type === "edit" ? "UPDATE NOTE ✏️" : "ADD NOTE 💫"}
-      </button>
+     <button
+  type="button"
+  className={`mt-6 w-full text-white font-semibold py-3 px-4 rounded-lg shadow-md 
+    transition-all duration-300 bg-gradient-to-r 
+    ${
+      type === "edit"
+        ? "from-purple-500 via-pink-500 to-red-500"
+        : "from-green-500 via-teal-500 to-blue-500"
+    }`}
+  onClick={handleAddOrUpdate}
+>
+  {type === "edit" ? "UPDATE NOTE ✏️" : "ADD NOTE 💫"}
+</button>
+
     </div>
   );
 };
