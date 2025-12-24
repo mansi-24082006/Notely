@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { MdAdd, MdClose } from 'react-icons/md';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { MdAdd, MdClose } from "react-icons/md";
 
 const TagInput = ({ tags, setTags }) => {
   const [inputValue, setInputValue] = useState("");
@@ -26,9 +27,9 @@ const TagInput = ({ tags, setTags }) => {
       {/* Display tags */}
       {tags?.length > 0 && (
         <div className="flex flex-wrap gap-2 mt-2">
-          {tags.map((tag, index) => (
+          {tags.map((tag) => (
             <span
-              key={index}
+              key={tag} // ✅ Use tag value as key instead of index
               className="flex items-center gap-1 text-sm font-medium text-white bg-blue-500 px-3 py-1 rounded-full shadow"
             >
               #{tag}
@@ -64,6 +65,13 @@ const TagInput = ({ tags, setTags }) => {
       </div>
     </div>
   );
+};
+
+/* ================= PROPS VALIDATION ================= */
+
+TagInput.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setTags: PropTypes.func.isRequired,
 };
 
 export default TagInput;
